@@ -33,6 +33,11 @@ bool Setting::init()
 	{
 		problemLoading("'setting background.jpg'");
 	}
+	auto size = background->getContentSize();
+	float scaleX = visibleSize.width / size.width;
+	float scaleY = visibleSize.height / size.height;
+	float scale = scaleX > scaleY ? scaleX : scaleY;
+	background->setScale(scale);
 	background->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 	this->addChild(background);
 
